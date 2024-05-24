@@ -7,17 +7,19 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include <sys++/ActorThread.hpp>
 #include <MyLib/MyLib.h>
+#include <activecpp/ActorThread.hpp>
 
-class Application : public ActorThread<Application>
-{
+using namespace activecpp;
+class Application : public ActorThread<Application> {
     friend ActorThread<Application>;
 
-    Application(int, char**) : library(MyLib::create()), safeLibrary(library) {}
+    Application(int, char **) : library(MyLib::create()), safeLibrary(library) {
+    }
 
     void onStart();
-    template <typename Any> void onMessage(Any&);
+    template <typename Any>
+    void onMessage(Any &);
 
     MyLib::ptr library;
     MyLib::Gateway safeLibrary;

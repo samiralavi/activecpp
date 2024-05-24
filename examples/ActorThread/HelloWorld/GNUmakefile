@@ -9,7 +9,7 @@ endif
 PATH_BIN  := $(BUILD_DIR)/application
 
 SRC_DIR   := src
-INCLUDES  := -I../../../include  # for <sys++/ActorThread.hpp>
+INCLUDES  := -I../../../include  # for <activecpp/ActorThread.hpp>
 LDLIBS    := -lpthread
 
 include ../../../posix.mk

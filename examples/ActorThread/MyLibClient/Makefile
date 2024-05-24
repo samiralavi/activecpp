@@ -4,7 +4,7 @@ SUBPRJS   = ../MyLib
 
 SRC_DIR   = src
 INCLUDES  = -I$(SUBPRJS)/include \
-            -I../../../include  # for <sys++/ActorThread.hpp>
+            -I../../../include  # for <activecpp/ActorThread.hpp>
 
 LIBS      = $(SUBPRJS)/$(BUILD_DIR)/*.a
 
