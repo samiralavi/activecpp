@@ -11,4 +11,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 
 add_library(ACTIVECPP INTERFACE)
-target_include_directories(ACTIVECPP INTERFACE external/activecpp/include)
+target_include_directories(ACTIVECPP INTERFACE include)
