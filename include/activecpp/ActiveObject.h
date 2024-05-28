@@ -1,6 +1,11 @@
-// Active Object pattern wrapping a standard C++11 thread (https://github.com/lightful/syscpp)
+// Active Object Design Pattern based on Modern C++17
 //
 //       Copyright Ciriaco Garcia de Celis 2016-2017.
+// Distributed under the Boost Software License, Version 1.0.
+//    (See accompanying file LICENSE_1_0.txt or copy at
+//          http://www.boost.org/LICENSE_1_0.txt)
+//
+// Modifications made by Seyed Amir Alavi, 2024.
 // Distributed under the Boost Software License, Version 1.0.
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
@@ -16,8 +21,8 @@
  - Optionally use publish() from the active object to invoke the binded callbacks
  - Optionally use timerStart() / timerStop() / timerReset() from the active object
  */
-#ifndef ACTORTHREAD_HPP
-#define ACTORTHREAD_HPP
+#ifndef ACTIVEOBJECT_H
+#define ACTIVEOBJECT_H
 
 #include <atomic>
 #include <chrono>
@@ -37,7 +42,7 @@ namespace activecpp {
 template <typename Runnable>
 class ActorThread {
 public:
-    typedef std::shared_ptr<Runnable> ptr;
+    using ptr = std::shared_ptr<Runnable>;
 
     std::weak_ptr<Runnable> weak_from_this() const noexcept {
         return weak_this;
@@ -105,7 +110,7 @@ public:
         return mboxNormPri.size() + mboxHighPri.size();
     }
 
-    typedef std::chrono::steady_clock TimerClock;
+    using TimerClock = std::chrono::steady_clock;
 
     void waitIdle(TimerClock::duration maxWait =
                       std::chrono::seconds(1)) // blocks until there aren't pending messages
@@ -657,4 +662,4 @@ private:
         timers; // ordered by deadline
 };
 } // namespace activecpp
-#endif /* ACTORTHREAD_HPP */
+#endif /* ACTIVEOBJECT_H */

@@ -4,16 +4,14 @@
 //    (See accompanying file LICENSE_1_0.txt or copy at
 //          http://www.boost.org/LICENSE_1_0.txt)
 
-#include <MyLib/Printer.h>
 #include "Application.h"
+#include <MyLib/Printer.h>
 
-int main(int argc, char** argv)
-{
+int main(int argc, char **argv) {
     return Application::run(argc, argv);
 }
 
-void Application::onStart()
-{
+void Application::onStart() {
     library->basicSubscriptions(weak_from_this()); // all except ReplyA and ReplyB
 
     library->connect(getChannel<std::shared_ptr<ReplyA>>());
@@ -22,13 +20,13 @@ void Application::onStart()
     library->send(WantPrinter{});
 }
 
-template <> void Application::onMessage(Printer::ptr& msg)
-{
+template <>
+void Application::onMessage(Printer::ptr &msg) {
     printer = msg;
 }
 
-template <> void Application::onMessage(std::unique_ptr<Info>& msg)
-{
+template <>
+void Application::onMessage(std::unique_ptr<Info> &msg) {
     printer->send(LINE("<MyApp> received " << msg->data));
 
     // Programmers not very seasoned managing the objects lifecycle may be concerned
@@ -42,23 +40,23 @@ template <> void Application::onMessage(std::unique_ptr<Info>& msg)
         safeLibrary(std::make_shared<RequestB>("RequestB"));
 }
 
-template <> void Application::onMessage(std::shared_ptr<ReplyA>& msg)
-{
+template <>
+void Application::onMessage(std::shared_ptr<ReplyA> &msg) {
     printer->send(LINE("<MyApp> received " << msg->data));
 }
 
-template <> void Application::onMessage(std::shared_ptr<ReplyB>& msg)
-{
+template <>
+void Application::onMessage(std::shared_ptr<ReplyB> &msg) {
     printer->send(LINE("<MyApp> received " << msg->data));
 }
 
-template <> void Application::onMessage(std::shared_ptr<Billing>& msg)
-{
+template <>
+void Application::onMessage(std::shared_ptr<Billing> &msg) {
     printer->send(LINE("<MyApp> owes " << msg->count << " bills"));
 }
 
-template <> void Application::onMessage(LibraryIsTired&)
-{
+template <>
+void Application::onMessage(LibraryIsTired &) {
     printer->send(LINE("<MyApp> shutting down"));
     printer->waitIdle();
     stop();

@@ -7,7 +7,7 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include <activecpp/ActorThread.hpp>
+#include <activecpp/ActiveObject.h>
 #include <random>
 #include <set>
 

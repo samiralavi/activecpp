@@ -9,7 +9,7 @@
 
 #include "Printer.h"
 #include "World.h"
-#include <activecpp/ActorThread.hpp>
+#include <activecpp/ActiveObject.h>
 
 struct Newspaper {
     std::string name;

@@ -8,7 +8,7 @@
 #define APPLICATION_H
 
 #include <MyLib/MyLib.h>
-#include <activecpp/ActorThread.hpp>
+#include <activecpp/ActiveObject.h>
 
 using namespace activecpp;
 class Application : public ActorThread<Application> {

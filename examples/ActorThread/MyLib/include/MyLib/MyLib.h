@@ -8,7 +8,7 @@
 #define MYLIB_H
 
 #include "Printer.h"
-#include <activecpp/ActorThread.hpp>
+#include <activecpp/ActiveObject.h>
 #include <atomic>
 #include <string>
 

@@ -7,7 +7,7 @@
 #ifndef PRINTER_H
 #define PRINTER_H
 
-#include <activecpp/ActorThread.hpp>
+#include <activecpp/ActiveObject.h>
 #include <activecpp/String.hpp>
 #include <chrono>
 #include <iomanip>

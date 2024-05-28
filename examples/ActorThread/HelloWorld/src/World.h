@@ -8,7 +8,7 @@
 #define WORLD_H
 
 #include "Printer.h"
-#include <activecpp/ActorThread.hpp>
+#include <activecpp/ActiveObject.h>
 #include <string>
 
 using namespace activecpp;
