@@ -4,7 +4,7 @@
 
 Implementation of the
 [Active Object pattern](http://www.drdobbs.com/parallel/prefer-using-active-objects-instead-of-n/225700095)
-wrapping a standard C++11 thread.
+wrapping a standard C++ thread.
 
 ### Simple
 * Whole implementation contained in **a single header file!**
@@ -29,14 +29,14 @@ wrapping a standard C++11 thread.
 * Nonetheless, callbacks onto already deleted active objects do not crash the application
 
 ### Minimum compiler required
-* Mininum gcc version supported is 4.8.0 (which added the thread_local keyword)
-* Works with clang 3.3 and Visual Studio 2015 Update 3 (no previous versions tested on both)
-* Clean, standard C++11 (no conditional code, same implementation for all platforms)
+* Mininum gcc version supported is 8.
+* Works with clang 5 and Visual Studio 2017.
+* Clean, standard C++17 (no conditional code, same implementation for all platforms)
 
 ### Example
 
 ```cpp
-// Linux:    g++ -std=c++11 -lpthread demo.cpp -o demo
+// Linux:    g++ -std=c++17 -lpthread demo.cpp -o demo
 // Windows:  cl.exe demo.cpp
 
 #include <string>

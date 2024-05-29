@@ -1,4 +1,4 @@
-// Active Object Design Pattern based on Modern C++17
+// Active Object Design Pattern in Modern C++ (17 and newer).
 //
 //       Copyright Ciriaco Garcia de Celis 2016-2017.
 // Distributed under the Boost Software License, Version 1.0.
@@ -320,7 +320,7 @@ private:
     class ActorQueue // FIFO (based on the MPSC queue at https://github.com/mstump/queues)
     {
         template <typename T>
-        using Aligned = typename std::aligned_storage<sizeof(T), std::alignment_of<T>::value>::type;
+        using Aligned = std::aligned_storage_t<sizeof(T), alignof(T)>;
 
     public:
         struct Linked {

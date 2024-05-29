@@ -34,7 +34,7 @@
 #  * To hook 'all' or 'clean' targets in your Makefile use '::' (instead of ':')
 #  * Other targets than 'all' or 'clean' should be placed after including this file (to keep 'all' as the default target)
 
-ARCHFLAGS ?= -std=c++11 -march=native  # set these variables in your Makefile to override these implicit defaults
+ARCHFLAGS ?= -std=c++17 -march=native  # set these variables in your Makefile to override these implicit defaults
 
 WARNFLAGS ?= -Wall -Wextra -pedantic -Wconversion -Wsign-conversion -Wsign-promo -Wcast-qual -Wfloat-equal \
              -Wpointer-arith -Wnon-virtual-dtor -Woverloaded-virtual -Wshadow -Wundef -Wmissing-include-dirs
