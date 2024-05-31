@@ -1,26 +1,55 @@
-// Active Object Design Pattern in Modern C++ (17 and newer).
-//
-//       Copyright Ciriaco Garcia de Celis 2016-2017.
-// Distributed under the Boost Software License, Version 1.0.
-//    (See accompanying file LICENSE_1_0.txt or copy at
-//          http://www.boost.org/LICENSE_1_0.txt)
-//
-// Modifications made by Seyed Amir Alavi, 2024.
-// Distributed under the Boost Software License, Version 1.0.
-//    (See accompanying file LICENSE_1_0.txt or copy at
-//          http://www.boost.org/LICENSE_1_0.txt)
-/*
- - Publicly inherit from this template (specializing it for the derived class itself)
- - On the derived (active object) class everything should be private: make this base a friend
- - Instance the active object by invoking the inherited public static create() or run() methods
- - Use send() to send or move messages (of any data type) to the active object
- - Use onMessage(AnyType&) methods to implement the messages reception on the active object
- - Optionally use a Gateway wrapper or build Channel objects instead of send()
- - Optionally override onStart() and onStop() in the active object
- - Optionally use connect() from unknown clients to bind callbacks for any data type
- - Optionally use publish() from the active object to invoke the binded callbacks
- - Optionally use timerStart() / timerStop() / timerReset() from the active object
+/**
+ * Active Object Design Pattern in Modern C++ (17 and newer).
+ *
+ *       Copyright Ciriaco Garcia de Celis 2016-2017.
+ * Distributed under the Boost Software License, Version 1.0.
+ *    (See accompanying file LICENSE_1_0.txt or copy at
+ *          http:*www.boost.org/LICENSE_1_0.txt)
+ *
+ * Modifications made by Seyed Amir Alavi, 2024.
+ * Distributed under the Boost Software License, Version 1.0.
+ *    (See accompanying file LICENSE_1_0.txt or copy at
+ *          http://www.boost.org/LICENSE_1_0.txt)
  */
+
+/**
+ * @file ActiveObject.h
+ * @brief Active Object Design Pattern in Modern C++ (17 and newer).
+ *
+ * This file implements the Active Object design pattern in C++. The Active Object design pattern
+ * allows for the decoupling of method invocation from method execution, enabling asynchronous and
+ * concurrent programming. It provides a way to encapsulate an object's state and behavior in a
+ * separate thread, allowing clients to interact with the object through message passing.
+ *
+ * The code in this file is based on the Active Object design pattern implementation by Ciriaco
+ * Garcia de Celis, with modifications made by Seyed Amir Alavi in 2024. It is distributed under the
+ * Boost Software License, Version 1.0.
+ *
+ * To use the Active Object design pattern, follow these steps:
+ * 1. Publicly inherit from the `ActorThread` template, specializing it for the derived class
+ * itself.
+ * 2. Make the base class a friend of the derived (active object) class, so that it can access
+ * private members.
+ * 3. Instantiate the active object by invoking the inherited public static `create()` or `run()`
+ * methods.
+ * 4. Use the `send()` method to send or move messages of any data type to the active object.
+ * 5. Implement the `onMessage(AnyType&)` methods to handle the received messages on the active
+ * object.
+ * 6. Optionally, use a `Gateway` wrapper or build `Channel` objects instead of using `send()`.
+ * 7. Optionally, override the `onStart()` and `onStop()` methods in the active object.
+ * 8. Optionally, use the `connect()` method to bind callbacks for any data type from unknown
+ * clients.
+ * 9. Optionally, use the `publish()` method from the active object to invoke the binded callbacks.
+ * 10. Optionally, use the `timerStart()`, `timerStop()`, and `timerReset()` methods from the active
+ * object to manage timers.
+ *
+ * This file provides the `ActorThread` class, which is a template class that represents an active
+ * object. It provides methods for creating and running active objects, sending messages, connecting
+ * callbacks, managing timers, and more.
+ *
+ * @note This code requires C++17 or newer.
+ */
+
 #ifndef ACTIVEOBJECT_H
 #define ACTIVEOBJECT_H
 
@@ -39,6 +68,32 @@
 #include <utility>
 
 namespace activecpp {
+
+/**
+ * @class ActorThread
+ * @brief The `ActorThread` class represents an active object that can receive and process messages
+ * in a separate thread.
+ *
+ * The `ActorThread` class provides a convenient way to implement the active object pattern in C++.
+ * It allows you to create an object that runs in its own thread and can receive messages
+ * asynchronously. Messages can be sent to the `ActorThread` using the `send()` method, and the
+ * object will process them in the order they were received.
+ *
+ * The `ActorThread` class also provides features such as timers, message channels, and callbacks,
+ * which can be used to implement complex communication patterns between active objects.
+ *
+ * To create an `ActorThread` object, you can use the static `create()` method, which spawns a new
+ * thread and returns a shared pointer to the object. Alternatively, you can use the static `run()`
+ * method to run the object in the calling thread (e.g., the `main()` thread).
+ *
+ * @note The `ActorThread` class is designed to be subclassed. You can override the virtual methods
+ * `onStart()` and `onStop()` to perform custom initialization and cleanup tasks when the object
+ * starts and stops.
+ *
+ * @note The `ActorThread` class is thread-safe. Multiple threads can send messages to the object
+ * concurrently without causing any data races or synchronization issues.
+ */
+
 template <typename Runnable>
 class ActorThread {
 public:
