@@ -1,0 +1,37 @@
+//           Copyright Seyed Amir Alavi, 2024.
+// Distributed under the Boost Software License, Version 1.0.
+//    (See accompanying file LICENSE_1_0.txt or copy at
+//           http://www.boost.org/LICENSE_1_0.txt)
+{
+    "name": "Activecpp Development Environment",
+    "dockerFile": "../containers/Dockerfile",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": null
+            },
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cmake-tools",
+                "ms-python.python",
+                "ms-azuretools.vscode-docker",
+                "twxs.cmake",
+                "streetsidesoftware.code-spell-checker",
+                "redhat.vscode-yaml",
+                "mhutchie.git-graph",
+                "zxh404.vscode-proto3",
+                "cschlosser.doxdocgen",
+                "ritwickdey.LiveServer",
+                "ms-vscode.cpptools-extension-pack",
+                "charliermarsh.ruff",
+                "hediet.vscode-drawio",
+                "GitHub.copilot"
+            ]
+        }
+    },
+    "remoteUser": "dev_user",
+    "runArgs": [
+        "--volume",
+        "${env:HOME}/.ssh:/home/dev_user/.ssh:ro"
+    ]
+}

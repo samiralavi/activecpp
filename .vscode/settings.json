@@ -1,0 +1,49 @@
+//           Copyright Seyed Amir Alavi, 2024.
+// Distributed under the Boost Software License, Version 1.0.
+//    (See accompanying file LICENSE_1_0.txt or copy at
+//           http://www.boost.org/LICENSE_1_0.txt)
+{
+    "notebook.formatOnSave.enabled": true,
+    "notebook.codeActionsOnSave": {
+        "notebook.source.fixAll": "explicit",
+        "notebook.source.organizeImports": "explicit"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true,
+        "editor.rulers": [
+            100
+        ],
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit",
+            "source.fixAll": "explicit"
+        }
+    },
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+    "python.analysis.typeCheckingMode": "basic",
+    "cSpell.language": "en-GB",
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "C_Cpp.clang_format_fallbackStyle": "LLVM",
+    "cSpell.diagnosticLevel": "Hint",
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.cStandard": "c17",
+    "C_Cpp.codeAnalysis.clangTidy.path": "/usr/bin/clang-tidy-14",
+    "cmake.ctest.parallelJobs": 1,
+    "editor.formatOnSave": true,
+    "cmake.configureOnOpen": false,
+    "files.insertFinalNewline": true,
+    "search.exclude": {
+        "components": true
+    },
+    "files.associations": {
+        "string": "cpp",
+        "cstddef": "cpp"
+    },
+}
