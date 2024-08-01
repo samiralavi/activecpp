@@ -1,0 +1,64 @@
+site_name: Active Objects for Modern C++
+site_author: Seyed Amir Alavi
+site_url: https://samiralavi.github.io/activecpp/
+repo_name: samiralavi/activecpp
+docs_dir: "docs"
+theme:
+  name: material
+  language: en
+  icon:
+    logo: material/contacts
+  favicon: images/favicon.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+      primary: red
+      accent: blue
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+      primary: red
+      accent: lime
+
+  features:
+    - navigation.sections
+    - toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+
+extra:
+  version:
+    provider: mike
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.details
+  - pymdownx.superfences
+  - md_in_html
+  - attr_list
+  - toc:
+      permalink: true
+      toc_depth: 2
+
+plugins:
+  - search
+  - mike
+
+nav:
+  - "index.md"
+
+copyright: Copyright &copy; 2024 Seyed Amir Alavi

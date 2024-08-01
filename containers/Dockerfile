@@ -35,6 +35,13 @@ ENV LC_ALL en_US.UTF-8
 # Links for python, pip, and python debugger
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
+USER $USERNAME
+
+# Install Poetry
+RUN curl -sSL https://install.python-poetry.org | python3 -
+
+USER root
+
 # Downloads and installs the latest version of cmake
 RUN wget https://github.com/Kitware/CMake/releases/download/v3.28.4/cmake-3.28.4-linux-x86_64.sh \
     && chmod +x cmake-3.28.4-linux-x86_64.sh \
