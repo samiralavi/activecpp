@@ -1,7 +1,0 @@
-# License for Original Code
-The original code in this repository is distributed under the Boost Software License, Version 1.0.
-(See LICENSE_1_0.txt or http://www.boost.org/LICENSE_1_0.txt)
-
-# License for Modifications
-Modifications made by Seyed Amir Alavi are distributed under the Boost Software License, Version 1.0.
-(See LICENSE_1_0.txt or http://www.boost.org/LICENSE_1_0.txt)
