@@ -7,23 +7,21 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include <MyLib/MyLib.h>
-#include <activecpp/ActiveObject.h>
+#include <MyLib.h>
+#include <samiralavi/activecpp.h>
 
 using namespace activecpp;
 class Application : public ActorThread<Application> {
-    friend ActorThread<Application>;
+  friend ActorThread<Application>;
 
-    Application(int, char **) : library(MyLib::create()), safeLibrary(library) {
-    }
+  Application(int, char **) : library(MyLib::create()), safeLibrary(library) {}
 
-    void onStart();
-    template <typename Any>
-    void onMessage(Any &);
+  void onStart();
+  template <typename Any> void onMessage(Any &);
 
-    MyLib::ptr library;
-    MyLib::Gateway safeLibrary;
-    Printer::ptr printer;
+  MyLib::ptr library;
+  MyLib::Gateway safeLibrary;
+  Printer::ptr printer;
 };
 
 #endif /* APPLICATION_H */

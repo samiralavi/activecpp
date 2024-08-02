@@ -17,6 +17,13 @@ if (CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
 endif()
 
 ##
+## INCLUDE
+##
+##
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
+include(ExternalProject)
+
+##
 ## OPTIONS
 ##
 
@@ -33,6 +40,7 @@ else()
 endif()
 
 option(ACTIVECPP_BuildTests                     "Build the unit tests when BUILD_TESTING is enabled." ${ACTIVECPP_BuildTests_INIT})
+option(ACTIVECPP_BuildExamples                  "Build examples if enabled." OFF)
 
 ##
 ## CONFIGURATION
@@ -72,7 +80,17 @@ CONFIGURE_FILE(
 if (ACTIVECPP_BuildTests)
     include(CTest)
     enable_testing()
+    add_subdirectory(tests)
 endif()
+
+##
+## EXAMPLES
+## include examples in the build if requested
+##
+if (ACTIVECPP_BuildExamples)
+    add_subdirectory(examples)
+endif()
+
 
 ##
 ## INSTALL

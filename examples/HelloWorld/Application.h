@@ -9,32 +9,33 @@
 
 #include "Printer.h"
 #include "World.h"
-#include <activecpp/ActiveObject.h>
+
+#include <samiralavi/activecpp.h>
 
 struct Newspaper {
-    std::string name;
+  std::string name;
 };
 struct Picture {
-    int width, height;
+  int width, height;
 };
 struct Money {
-    double amount;
+  double amount;
 };
 
 class Application : public ActorThread<Application> {
-    friend ActorThread<Application>;
+  friend ActorThread<Application>;
 
-    Application(int, char **);
+  Application(int, char **);
 
-    void onStart();
-    void onMessage(Newspaper &);
-    void onMessage(Picture &);
-    void onMessage(Money &);
-    void onTimer(const int &);
-    void onStop();
+  void onStart();
+  void onMessage(Newspaper &);
+  void onMessage(Picture &);
+  void onMessage(Money &);
+  void onTimer(const int &);
+  void onStop();
 
-    Printer::ptr printer;
-    World::ptr world;
+  Printer::ptr printer;
+  World::ptr world;
 };
 
 #endif /* APPLICATION_H */
