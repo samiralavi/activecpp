@@ -1,0 +1,45 @@
+name: Ubuntu
+
+on:
+  push:
+    branches:
+      - main
+      - "v*.*"
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  ci_test_clang:
+    runs-on: ubuntu-latest
+    container: silkeh/clang:dev
+    steps:
+      - name: Install git and unzip
+        run: apt-get update ; apt-get install -y git unzip
+      - uses: actions/checkout@v3
+      - name: Get latest CMake and ninja
+        uses: lukka/get-cmake@v3.27.7
+      - name: Run CMake
+        run: cmake -S . -B build -DACTIVECPP_BuildExamples=On
+      - name: Build
+        run: cmake --build build
+      - name: Run tests
+        run: ctest --test-dir build
+
+  ci_test_gcc:
+    runs-on: ubuntu-latest
+    container: ghcr.io/nlohmann/json-ci:v2.4.0
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run CMake
+        run: cmake -S . -B build -DACTIVECPP_BuildExamples=On
+      - name: Build
+        run: cmake --build build
+      - name: Run tests
+        run: ctest --test-dir build
