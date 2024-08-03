@@ -76,7 +76,7 @@
 #include <type_traits>
 #include <utility>
 
-namespace activecpp {
+namespace samiralavi {
 
 /**
  * @class ActorThread
@@ -724,5 +724,5 @@ private:
   std::set<std::shared_ptr<ActorTimer>, ActorPointedKeyComparator<ActorTimer>>
       timers; // ordered by deadline
 };
-} // namespace activecpp
+} // namespace samiralavi
 #endif /* ACTIVEOBJECT_H */

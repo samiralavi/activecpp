@@ -12,7 +12,7 @@
 #include <random>
 #include <set>
 
-using namespace activecpp;
+using namespace samiralavi;
 
 struct SyncBegin {
   bool master;

@@ -1,9 +1,9 @@
-# C++ essential additions
+# Active Objects for Modern C++
 
-## ActorThread: Active Object pattern in C++
+## ActorThread: Active object pattern in C++
 
 Implementation of the
-[Active Object pattern](http://www.drdobbs.com/parallel/prefer-using-active-objects-instead-of-n/225700095)
+[Active Object pattern](https://samiralavi.github.io/activecpp/main/active-object-pattern.html) 
 wrapping a standard C++ thread.
 
 ### Simple
@@ -28,7 +28,7 @@ wrapping a standard C++ thread.
 * No internal strong references (only the final users determine the destruction/end)
 * Nonetheless, callbacks onto already deleted active objects do not crash the application
 
-### Minimum compiler required
+### Minimum compiler required (C++17 and newer)
 * Mininum gcc version supported is 8.
 * Works with clang 5 and Visual Studio 2017.
 * Clean, standard C++17 (no conditional code, same implementation for all platforms)
@@ -36,13 +36,13 @@ wrapping a standard C++ thread.
 ### Example
 
 ```cpp
-// Linux:    g++ -std=c++17 -lpthread demo.cpp -o demo
-// Windows:  cl.exe demo.cpp
+#include <samiralavi/activecpp.h>
 
 #include <string>
 #include <iostream>
 #include <sstream>
-#include "ActorThread.hpp"
+
+using namespace samiralavi;
 
 struct Message { std::string description; };
 struct OtherMessage { double beautifulness; };
@@ -106,4 +106,4 @@ Despite received by reference, *a copy* of the original object is delivered to t
 Alternatively, the carried object can be moved, which is the way to transfer non-copiable objects like a unique_ptr.
 Copying is highly efficient with pointers, but note that several threads must not concurrently access a unsafe pointed object.
 
-See the [*examples*](examples/ActorThread/) folder for more elaborated examples, including a library and its client using the callbacks mechanism.
+See the [*examples*](examples/) folder for more elaborated examples, including a library and its client using the callbacks mechanism.
