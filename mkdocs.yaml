@@ -60,5 +60,6 @@ plugins:
 
 nav:
   - "index.md"
+  - "active-object-pattern.md"
 
 copyright: Copyright &copy; 2024 Seyed Amir Alavi

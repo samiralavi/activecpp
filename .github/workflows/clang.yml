@@ -1,4 +1,4 @@
-name: Build & Test
+name: Clang Build & Test
 
 on:
   push:
@@ -36,23 +36,6 @@ jobs:
     steps:
       - name: Install git and unzip
         run: apt-get update ; apt-get install -y git unzip
-      - uses: actions/checkout@v3
-      - name: Get latest CMake and ninja
-        uses: lukka/get-cmake@v3.27.7
-      - name: Run CMake
-        run: cmake -S . -B build -DACTIVECPP_BuildExamples=On
-      - name: Build
-        run: cmake --build build
-      - name: Run tests
-        run: ctest --test-dir build
-
-  ci_test_gcc:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        compiler: ["8", "9", "10", "11", "12", "13", "latest"]
-    container: gcc:${{ matrix.compiler }}
-    steps:
       - uses: actions/checkout@v3
       - name: Get latest CMake and ninja
         uses: lukka/get-cmake@v3.27.7
