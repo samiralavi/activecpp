@@ -13,8 +13,6 @@
 
 #include <string>
 
-using namespace activecpp;
-
 struct Kiosk {
   std::string itemRequest;
 };
@@ -27,8 +25,8 @@ struct Bank {
   std::string account;
 };
 
-class World : public ActorThread<World> {
-  friend ActorThread<World>;
+class World : public samiralavi::ActorThread<World> {
+  friend samiralavi::ActorThread<World>;
 
   World(const std::shared_ptr<class Application> &myCreator) : app(myCreator) {}
 

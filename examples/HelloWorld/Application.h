@@ -22,8 +22,8 @@ struct Money {
   double amount;
 };
 
-class Application : public ActorThread<Application> {
-  friend ActorThread<Application>;
+class Application : public samiralavi::ActorThread<Application> {
+  friend samiralavi::ActorThread<Application>;
 
   Application(int, char **);
 

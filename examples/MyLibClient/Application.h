@@ -10,7 +10,7 @@
 #include <MyLib.h>
 #include <samiralavi/activecpp.h>
 
-using namespace activecpp;
+using namespace samiralavi;
 class Application : public ActorThread<Application> {
   friend ActorThread<Application>;
 

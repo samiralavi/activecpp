@@ -1,4 +1,4 @@
-name: Docs latest and released versions
+name: Documentation
 
 on:
   push:

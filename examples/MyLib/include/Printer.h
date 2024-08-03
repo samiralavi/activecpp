@@ -24,7 +24,7 @@
 #define LINE(text)                                                             \
   VA_STR("<thread " << std::this_thread::get_id() << "> " << text)
 
-using namespace activecpp;
+using namespace samiralavi;
 
 class Printer : public ActorThread<Printer> // a dedicated printing thread
                                             // prevents a mixed output
