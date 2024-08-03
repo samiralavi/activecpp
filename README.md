@@ -1,9 +1,13 @@
+[![GCC Build & Test](https://github.com/samiralavi/activecpp/actions/workflows/gcc.yml/badge.svg)](https://github.com/samiralavi/activecpp/actions/workflows/gcc.yml)
+[![Clang Build & Test](https://github.com/samiralavi/activecpp/actions/workflows/clang.yml/badge.svg)](https://github.com/samiralavi/activecpp/actions/workflows/clang.yml)
+[![Documentation](https://github.com/samiralavi/activecpp/actions/workflows/docs.yaml/badge.svg)](https://github.com/samiralavi/activecpp/actions/workflows/docs.yaml)
+
 # Active Objects for Modern C++
 
 ## ActorThread: Active object pattern in C++
 
 Implementation of the
-[Active Object pattern](https://samiralavi.github.io/activecpp/main/active-object-pattern.html) 
+[Active Object pattern](https://samiralavi.github.io/activecpp/main/active-object-pattern/) 
 wrapping a standard C++ thread.
 
 ### Simple
