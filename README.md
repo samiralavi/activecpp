@@ -2,6 +2,8 @@
 [![Clang Build & Test](https://github.com/samiralavi/activecpp/actions/workflows/clang.yml/badge.svg)](https://github.com/samiralavi/activecpp/actions/workflows/clang.yml)
 [![Documentation](https://github.com/samiralavi/activecpp/actions/workflows/docs.yaml/badge.svg)](https://github.com/samiralavi/activecpp/actions/workflows/docs.yaml)
 
+[![Active Objects for Modern C++](docs/images/logo.drawio.svg)](https://github.com/samiralavi/activecpp)
+
 # Active Objects for Modern C++
 
 ## ActorThread: Active object pattern in C++
