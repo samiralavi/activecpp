@@ -1,6 +1,7 @@
 site_name: Active Objects for Modern C++
 site_author: Seyed Amir Alavi
 site_url: https://samiralavi.github.io/activecpp/
+repo_url: https://github.com/samiralavi/activecpp
 repo_name: samiralavi/activecpp
 docs_dir: "docs"
 theme:
@@ -8,7 +9,8 @@ theme:
   language: en
   icon:
     logo: material/contacts
-  favicon: images/favicon.png
+  favicon: images/logo-small.drawio.png
+  logo: images/logo-small.drawio.png
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default

@@ -1,6 +1,6 @@
 # Home
 
-## Active Objects for Modern C++
+[![Active Objects for Modern C++](images/logo.drawio.svg)](https://github.com/samiralavi/activecpp)
 
 The [`activecpp`](https://github.com/samiralavi/activecpp) repository provides an implementation of the Active Object design pattern in modern C++ (C++17 and newer). The primary purpose of this repository is to facilitate asynchronous and concurrent programming by decoupling method invocation from method execution. This is achieved by encapsulating an object's state and behavior in a separate thread, allowing clients to interact with the object through message passing.
 
